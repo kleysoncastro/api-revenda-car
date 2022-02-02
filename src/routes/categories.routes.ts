@@ -1,16 +1,20 @@
-import { Router } from 'express';
+import { Router } from "express";
+import { v4 as uuidv4 } from "uuid";
+
+import { Category } from "../model/Category";
 
 const categoriesRoutes = Router();
-const categories = [];
-categoriesRoutes.post('/categories', (req, res) => {
-  const { name, description } = req.body;
+const categories: Category[] = [];
+categoriesRoutes.post("/", (req, res) => {
+    const { name, description } = req.body;
 
-  categories.push({
-    name,
-    description,
-  });
-  return res.status(201).send(categories);
+    categories.push({
+        name,
+        description,
+        id: uuidv4(),
+        created_at: new Date(),
+    });
+    return res.status(201).send(categories);
 });
 
-// eslint-disable-next-line import/prefer-default-export
 export { categoriesRoutes };
