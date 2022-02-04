@@ -4,9 +4,9 @@ import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
 class LinstCategoriesController {
     constructor(private listCategoiesUseCase: ListCategoriesUseCase) {}
-    handle(req: Request, res: Response): Response {
+    handle(request: Request, response: Response): Response {
         const categories = this.listCategoiesUseCase.execute();
-        return res.json(categories);
+        return response.json(categories);
     }
 }
 

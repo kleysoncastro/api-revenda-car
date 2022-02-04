@@ -5,13 +5,13 @@ import { linstCategoriesController } from "../modules/cars/useCases/listCategori
 
 const categoriesRoutes = Router();
 
-categoriesRoutes.post("/", (req, res) => {
-    return createContegoryController.handle(req, res);
+categoriesRoutes.post("/", (request, response) => {
+    return createContegoryController.handle(request, response);
 });
 
-categoriesRoutes.get("/", (req, res) => {
-    const allCateroris = linstCategoriesController.handle(req, res);
-    return res.json(allCateroris);
+categoriesRoutes.get("/", (request, response) => {
+    const allCateroris = linstCategoriesController.handle(request, response);
+    return response.json(allCateroris);
 });
 
 export { categoriesRoutes };
