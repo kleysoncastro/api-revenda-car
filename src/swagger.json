@@ -1,0 +1,53 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ReVenda Documentation",
+        "description": "This is an Revenda",
+        "version": "1.0.0",
+        "contact": {
+            "email": "kleysoncastro99@gmail.com"
+        }
+    },
+    "paths": {
+        "/caregories": {
+            "post": {
+                "tags": ["categories"],
+                "sumary": "Cria uma Categoria",
+                "description":"Cria uma nova cateogorias de carros",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "nome da nova categoria",
+                                    "description": "descrição da categoria"
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "responses": {
+                    "200": {
+                        "description": "Categoria criada com sucesso"
+                    }, 
+                    "500": {
+                        "description": "Erro interno da applicação"
+                    }
+                    
+                }
+            
+            }
+    
+        }
+
+    }
+}
