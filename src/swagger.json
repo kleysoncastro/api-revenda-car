@@ -9,7 +9,7 @@
         }
     },
     "paths": {
-        "/caregories": {
+        "/categories": {
             "post": {
                 "tags": ["categories"],
                 "sumary": "Cria uma Categoria",
@@ -45,6 +45,35 @@
                     
                 }
             
+            },
+            "get": {
+                "tags": ["categories"],
+                "sumary": "list todas as Categoria",
+                "description":"Lista todas cas categorias, sejam elas importadas por cvs ou manual",
+                "responses": {
+                    "200": {
+                        "description": "secesso na listagem",
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties":{
+                                            "name": {
+                                                "type":"string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
     
         }
