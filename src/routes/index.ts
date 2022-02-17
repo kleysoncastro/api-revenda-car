@@ -5,7 +5,6 @@ import { importCategoryFromFile } from "./importCategoryFromFile.routes";
 import { specificationRouter } from "./specification.routes";
 
 const router = Router();
-
 router.use("/categories", categoriesRoutes);
 router.use("/import", importCategoryFromFile);
 router.use("/especification", specificationRouter);

@@ -1,15 +1,41 @@
 version: '3'
 
 services:
+
+    database_revenda:
+        container_name: revenda-db
+        image: postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        env_file:
+            - .env
+        environment:
+            - POSTGRES_USER=castro
+            - POSTGRES_PASSWORD=root123
+            - POSTGRES_DB=revendadb
+
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+
     app:
-        container_name: revenda
+        container_name: revenda-api
         image: node:16
         working_dir: /usr/app
-        command: bash -c "npm install --only=prod && npm run ${BUILD}"
+        command: bash -c "npm install --only=prod && npm run dev"
         restart: always
         volumes:
             - ./build/src/:/usr/app/build/src/
             - ./package.json/:/usr/app/package.json
+            - ./ormconfig.js/:/usr/app/ormconfig.js
+            - .env/:/usr/app/.env
         ports:
             - 3333:3333
             - 9229:9229
+        depends_on:
+            - database_revenda
+        links:
+            - database_revenda
+volumes:
+    pgdata:
+        driver: local
