@@ -1,10 +1,15 @@
-version: '2.2'
+version: '3'
 
 services:
     app:
-        build: .
         container_name: revenda
+        image: node:16
+        working_dir: /usr/app
+        command: bash -c "npm install --only=prod && npm run ${BUILD}"
+        restart: always
+        volumes:
+            - ./build/src/:/usr/app/build/src/
+            - ./package.json/:/usr/app/package.json
         ports:
             - 3333:3333
-        volumes:
-            - .:/usr/app
+            - 9229:9229
