@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
 
@@ -11,12 +11,12 @@ services:
         env_file:
             - .env
         environment:
-            - POSTGRES_USER=castro
-            - POSTGRES_PASSWORD=root123
-            - POSTGRES_DB=revendadb
+            - "POSTGRES_USER=${POSTGRES_USER}"
+            - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+            - "POSTGRES_DB=${POSTGRES_DB}"
 
         volumes:
-            - pgdata:/var/lib/postgresql/data
+            - pgdata:/data/postgres
 
     app:
         container_name: revenda-api
