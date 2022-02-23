@@ -25,7 +25,7 @@ services:
         command: bash -c "npm install --only=prod && npm run dev"
         restart: always
         volumes:
-            - ./build/src/:/usr/app/build/src/
+            - ./build/src/:/usr/app/src/
             - ./package.json/:/usr/app/package.json
             - ./ormconfig.js/:/usr/app/ormconfig.js
             - .env/:/usr/app/.env
