@@ -1,12 +1,12 @@
 {
   "name": "api-revenda",
   "version": "1.0.0",
-  "main": "build/src/server.js",
+  "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --watch ./build build/src/server.js",
-    "start": "node build/src/server.js",
-    "debug": "nodemon -L --watch ./build --inspect-brk=0.0.0.0:9229 --nolazy ./build/src/server.js",
+    "dev": "nodemon --watch ./src src/server.js",
+    "start": "node /src/server.js",
+    "debug": "nodemon -L --watch ./src --inspect-brk=0.0.0.0:9229 --nolazy ./src/server.js",
     "lint-fix": "yarn eslint --fix src/",
     "build": "rm -rf build && tsc && docker-compose up",
     "docker:debug": "docker exec -it revenda-api bash -c 'npm run debug'",
