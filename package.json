@@ -7,7 +7,6 @@
     "dev": "nodemon --watch ./src src/server.js",
     "start": "node /src/server.js",
     "debug": "nodemon -L --watch ./src --inspect-brk=0.0.0.0:9229 --nolazy ./src/server.js",
-    "lint-fix": "yarn eslint --fix src/",
     "build": "rm -rf build && tsc && docker-compose up",
     "docker:debug": "docker exec -it revenda-api bash -c 'npm run debug'",
     "typeorm":"ts-node-dev ./node_modules/typeorm/cli"
